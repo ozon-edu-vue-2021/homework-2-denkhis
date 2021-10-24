@@ -6,12 +6,12 @@
         class="directory__node"
     >
       <app-icon
-          name='folderOpen'
+          :name="showChildren ? 'folderOpen' : 'folderClosed'"
           class="node-icon"
       />
       <span :class="{'pointer': hasChildren}">{{node.name}}</span>
     </div>
-    <file v-else :node-name="node.name"></file>
+    <file v-else :node-name="node.name"/>
     <div v-if="hasChildren && showChildren">
       <directory
           v-for="(child, index) in node.contents"
