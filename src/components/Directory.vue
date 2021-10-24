@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1 @click="show = !show">{{node.name}}</h1>
-    <div v-if="hasChildren && show">
+    <h1 @click="showChildren = !showChildren">{{node.name}}</h1>
+    <div v-if="hasChildren && showChildren">
       <directory
           v-for="child in node.contents"
           :key="child.name"
@@ -22,7 +22,7 @@ export default {
   },
   data () {
     return {
-      show: false
+      showChildren: false
     }
   },
   computed: {
