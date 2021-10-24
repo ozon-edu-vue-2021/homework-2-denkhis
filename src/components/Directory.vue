@@ -1,26 +1,34 @@
 <template>
   <div>
-    <div>
-      <app-icon name="folderOpen"/>
-      <File @click.native="toggleChildren" :node-name="node.name"/>
+    <div
+        v-if="node.type === 'directory'"
+        @click="toggleChildren"
+        class="directory__node"
+    >
+      <app-icon
+          name='folderOpen'
+          class="node-icon"
+      />
+      <span :class="{'pointer': hasChildren}">{{node.name}}</span>
     </div>
+    <file v-else :node-name="node.name"></file>
     <div v-if="hasChildren && showChildren">
       <directory
           v-for="(child, index) in node.contents"
           :key="`${child.name}-${index}`"
           :node="child"
-          class="child-directory"
+          class="directory__child"
       />
     </div>
   </div>
 </template>
 
 <script>
-import File from "@/components/File";
-import AppIcon from "@/components/icons/AppIcon";
+import File from '@/components/File'
+import AppIcon from '@/components/icons/AppIcon'
 
 export default {
-  name: "Directory",
+  name: 'Directory',
   components: {
     AppIcon,
     File

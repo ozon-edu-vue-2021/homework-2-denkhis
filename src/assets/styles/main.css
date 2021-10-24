@@ -1,0 +1,28 @@
+body {
+    background: #202124;
+    color: #F1F2F3;
+}
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.directory__node {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.directory__child {
+    margin-left: 40px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.node-icon {
+    margin-right: 10px;
+}

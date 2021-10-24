@@ -3,12 +3,16 @@
 </template>
 
 <script>
-import folderOpen from "@/components/icons/FolderOpen";
-import link from './Link';
+import file from '@/components/icons/File'
+import folderClosed from '@/components/icons/FolderClosed'
+import folderOpen from '@/components/icons/FolderOpen'
+import link from './Link'
 
 const icons = {
+  file,
+  folderClosed,
   folderOpen,
-  link,
+  link
 }
 
 export default {

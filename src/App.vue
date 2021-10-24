@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Directory from "@/components/Directory";
+import Directory from "@/components/Directory"
 import tree from '../public/static/node_modules.json'
 
 export default {
@@ -20,14 +20,3 @@ export default {
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.child-directory {
-  margin-left: 40px;
-}
-</style>
