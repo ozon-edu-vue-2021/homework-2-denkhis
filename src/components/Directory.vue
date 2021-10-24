@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <app-icon name="link"/>
+      <app-icon name="folderOpen"/>
       <File @click.native="toggleChildren" :node-name="node.name"/>
     </div>
     <div v-if="hasChildren && showChildren">

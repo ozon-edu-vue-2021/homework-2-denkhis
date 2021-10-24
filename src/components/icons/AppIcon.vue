@@ -3,10 +3,12 @@
 </template>
 
 <script>
-import link from './Link'
+import folderOpen from "@/components/icons/FolderOpen";
+import link from './Link';
 
 const icons = {
-  link
+  folderOpen,
+  link,
 }
 
 export default {
@@ -21,6 +23,6 @@ export default {
     iconComponent () {
       return icons[this.name]
     }
-  },
+  }
 }
 </script>
