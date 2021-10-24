@@ -1,7 +1,8 @@
 <template>
   <div>
     <div>
-      <File @click.native="showChildren = !showChildren" :node-name="node.name"/>
+      <app-icon name="link"/>
+      <File @click.native="toggleChildren" :node-name="node.name"/>
     </div>
     <div v-if="hasChildren && showChildren">
       <directory
@@ -16,10 +17,14 @@
 
 <script>
 import File from "@/components/File";
+import AppIcon from "@/components/icons/AppIcon";
 
 export default {
   name: "Directory",
-  components: {File},
+  components: {
+    AppIcon,
+    File
+  },
   props: {
     node: {
       type: Object,
@@ -29,6 +34,11 @@ export default {
   data () {
     return {
       showChildren: false
+    }
+  },
+  methods: {
+    toggleChildren () {
+      this.showChildren = !this.showChildren
     }
   },
   computed: {
