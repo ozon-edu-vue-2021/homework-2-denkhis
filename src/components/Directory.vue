@@ -1,6 +1,8 @@
 <template>
   <div>
-    <File @click.native="showChildren = !showChildren" :node-name="node.name"/>
+    <div>
+      <File @click.native="showChildren = !showChildren" :node-name="node.name"/>
+    </div>
     <div v-if="hasChildren && showChildren">
       <directory
           v-for="(child, index) in node.contents"
