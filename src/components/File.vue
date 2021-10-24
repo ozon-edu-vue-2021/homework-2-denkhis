@@ -1,10 +1,13 @@
 <template>
-
+  <h1>{{ nodeName }}</h1>
 </template>
 
 <script>
 export default {
-  name: "File"
+  name: "File",
+  props: {
+    nodeName: String
+  }
 }
 </script>
 

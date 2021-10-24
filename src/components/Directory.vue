@@ -1,19 +1,23 @@
 <template>
   <div>
-    <h1 @click="showChildren = !showChildren">{{node.name}}</h1>
+    <File @click.native="showChildren = !showChildren" :node-name="node.name"/>
     <div v-if="hasChildren && showChildren">
       <directory
-          v-for="child in node.contents"
-          :key="child.name"
+          v-for="(child, index) in node.contents"
+          :key="`${child.name}-${index}`"
           :node="child"
+          class="child-directory"
       />
     </div>
   </div>
 </template>
 
 <script>
+import File from "@/components/File";
+
 export default {
   name: "Directory",
+  components: {File},
   props: {
     node: {
       type: Object,
