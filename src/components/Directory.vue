@@ -1,17 +1,10 @@
 <template>
   <div>
-    <div
-        v-if="node.type === 'directory'"
-        @click="toggleChildren"
-        class="directory__node"
-    >
-      <app-icon
-          :name="showChildren ? 'folderOpen' : 'folderClosed'"
-          class="node-icon"
-      />
-      <span :class="{'pointer': hasChildren}">{{node.name}}</span>
-    </div>
-    <file v-else :node-name="node.name"/>
+    <node-item
+        :node-name="node.name"
+        :node-type="node.type"
+        @click.native="handleClick"
+    />
     <div v-if="hasChildren && showChildren">
       <directory
           v-for="(child, index) in node.contents"
@@ -24,14 +17,12 @@
 </template>
 
 <script>
-import File from '@/components/File'
-import AppIcon from '@/components/icons/AppIcon'
+import NodeItem from '@/components/NodeItem'
 
 export default {
   name: 'Directory',
   components: {
-    AppIcon,
-    File
+    NodeItem
   },
   props: {
     node: {
@@ -41,12 +32,17 @@ export default {
   },
   data () {
     return {
-      showChildren: false
+      showChildren: false,
+      showLoader: false
     }
   },
   methods: {
-    toggleChildren () {
+    async toggleChildren () {
       this.showChildren = !this.showChildren
+    },
+    handleClick () {
+      this.showLoader = true
+      this.toggleChildren().then(() => this.showLoader = false)
     }
   },
   computed: {
