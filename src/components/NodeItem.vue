@@ -1,7 +1,7 @@
 <template>
   <div class="directory__node pointer">
     <app-icon
-        name='file'
+        :name='iconName'
         class="node-icon"
     />
     <span>{{ nodeName }}</span>
@@ -17,7 +17,19 @@ export default {
     AppIcon
   },
   props: {
-    nodeName: String
+    nodeName: String,
+    nodeType: String,
+    hasChildren: Boolean,
+    showChildren: Boolean
+  },
+  computed: {
+    iconName () {
+      if (this.nodeType === 'directory') {
+        return this.showChildren ? 'folderOpen' : 'folderClosed'
+      } else {
+        return this.nodeType
+      }
+    }
   }
 }
 </script>
