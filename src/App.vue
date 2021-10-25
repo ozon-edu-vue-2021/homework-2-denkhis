@@ -25,7 +25,6 @@
     }),
     methods: {
       changePath (payload) {
-        console.log(payload)
         this.path = payload
       }
     }
