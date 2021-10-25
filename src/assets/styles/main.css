@@ -1,7 +1,10 @@
-body {
-    background: #202124;
+* {
     color: #F1F2F3;
     font-size: 14px;
+}
+
+body {
+    background: #202124;
 }
 
 #app {
@@ -30,8 +33,6 @@ body {
     background: transparent;
     border-radius: 5px;
     border: none;
-    color: #F1F2F3;
-    font-size: 14px;
 }
 
 .node-item:hover {
