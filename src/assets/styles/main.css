@@ -11,9 +11,14 @@ body {
 }
 
 .directory__node {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.directory__node:hover {
+    background: rgba(184, 205, 239, .2);
 }
 
 .directory__child {
