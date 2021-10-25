@@ -9,31 +9,27 @@
 </template>
 
 <script>
-import AppIcon from "@/components/icons/AppIcon";
+  import AppIcon from "@/components/icons/AppIcon";
 
-export default {
-  name: "File",
-  components: {
-    AppIcon
-  },
-  props: {
-    nodeName: String,
-    nodeType: String,
-    hasChildren: Boolean,
-    showChildren: Boolean
-  },
-  computed: {
-    iconName () {
-      if (this.nodeType === 'directory') {
-        return this.showChildren ? 'folderOpen' : 'folderClosed'
-      } else {
-        return this.nodeType
+  export default {
+    name: "File",
+    components: {
+      AppIcon
+    },
+    props: {
+      nodeName: String,
+      nodeType: String,
+      hasChildren: Boolean,
+      showChildren: Boolean
+    },
+    computed: {
+      iconName () {
+        if (this.nodeType === 'directory') {
+          return this.showChildren ? 'folderOpen' : 'folderClosed'
+        } else {
+          return this.nodeType
+        }
       }
     }
   }
-}
 </script>
-
-<style scoped>
-
-</style>

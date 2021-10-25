@@ -17,43 +17,39 @@
 </template>
 
 <script>
-import NodeItem from '@/components/NodeItem'
+  import NodeItem from '@/components/NodeItem'
 
-export default {
-  name: 'Directory',
-  components: {
-    NodeItem
-  },
-  props: {
-    node: {
-      type: Object,
-      required: true
-    }
-  },
-  data () {
-    return {
-      showChildren: false,
-      showLoader: false
-    }
-  },
-  methods: {
-    async toggleChildren () {
-      this.showChildren = !this.showChildren
+  export default {
+    name: 'Directory',
+    components: {
+      NodeItem
     },
-    handleClick () {
-      this.showLoader = true
-      this.toggleChildren().then(() => this.showLoader = false)
-    }
-  },
-  computed: {
-    hasChildren () {
-      const { contents } = this.node
-      return contents && contents.length > 0
+    props: {
+      node: {
+        type: Object,
+        required: true
+      }
+    },
+    data () {
+      return {
+        showChildren: false,
+        showLoader: false
+      }
+    },
+    methods: {
+      async toggleChildren () {
+        this.showChildren = !this.showChildren
+      },
+      handleClick () {
+        this.showLoader = true
+        this.toggleChildren().then(() => this.showLoader = false)
+      }
+    },
+    computed: {
+      hasChildren () {
+        const { contents } = this.node
+        return contents && contents.length > 0
+      }
     }
   }
-}
 </script>
-
-<style scoped>
-
-</style>
