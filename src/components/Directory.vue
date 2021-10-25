@@ -3,11 +3,9 @@
     <node-item
         :node-name="node.name"
         :node-type="node.type"
-        :has-children="hasChildren"
         :show-children="showChildren"
         @click.native="toggleChildren"
     />
-    <span v-if="showLoader">loader</span>
     <div v-if="hasChildren && showChildren">
       <directory
           v-for="(child, index) in node.contents"
@@ -33,12 +31,9 @@
         required: true
       }
     },
-    data () {
-      return {
-        showChildren: false,
-        showLoader: false
-      }
-    },
+    data: () => ({
+      showChildren: false,
+    }),
     methods: {
       toggleChildren () {
         this.showChildren = !this.showChildren

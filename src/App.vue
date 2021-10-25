@@ -13,10 +13,8 @@
     components: {
       Directory
     },
-    data () {
-      return {
-        nodeTree
-      }
-    }
+    data: () => ({
+      nodeTree
+    })
   }
 </script>

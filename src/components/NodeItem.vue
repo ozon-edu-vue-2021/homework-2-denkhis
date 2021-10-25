@@ -19,7 +19,6 @@
     props: {
       nodeName: String,
       nodeType: String,
-      hasChildren: Boolean,
       showChildren: Boolean
     },
     computed: {
