@@ -14,6 +14,7 @@ body {
     display: inline-flex;
     align-items: center;
     padding: 5px;
+    margin-bottom: 5px;
     border-radius: 5px;
 }
 
@@ -31,4 +32,14 @@ body {
 
 .node-icon {
     margin-right: 10px;
+}
+
+.selected {
+    background: rgba(184, 205, 239, .6);
+    color: black;
+}
+
+.selected:hover {
+    background: rgba(184, 205, 239, .6);
+    color: black;
 }
