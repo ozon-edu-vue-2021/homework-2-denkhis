@@ -3,8 +3,11 @@
     <node-item
         :node-name="node.name"
         :node-type="node.type"
-        @click.native="handleClick"
+        :has-children="hasChildren"
+        :show-children="showChildren"
+        @click.native="toggleChildren"
     />
+    <span v-if="showLoader">loader</span>
     <div v-if="hasChildren && showChildren">
       <directory
           v-for="(child, index) in node.contents"
@@ -37,12 +40,8 @@
       }
     },
     methods: {
-      async toggleChildren () {
+      toggleChildren () {
         this.showChildren = !this.showChildren
-      },
-      handleClick () {
-        this.showLoader = true
-        this.toggleChildren().then(() => this.showLoader = false)
       }
     },
     computed: {

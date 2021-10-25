@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import Directory from "@/components/Directory"
+  import Directory from '@/components/Directory'
   import nodeTree from '../public/static/node_modules.json'
 
   export default {
