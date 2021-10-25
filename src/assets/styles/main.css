@@ -10,40 +10,43 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.directory__node {
-    display: inline-flex;
-    align-items: center;
-    padding: 5px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-}
-
-.directory__node:hover {
-    background: rgba(184, 205, 239, .2);
-}
-
-.directory__node:focus {
-    background: rgba(184, 205, 239, .2);
-}
-
-.directory__child {
-    margin-left: 40px;
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .pointer {
     cursor: pointer;
 }
 
+
+.node-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 5px;
+    background: transparent;
+    border-radius: 5px;
+    border: none;
+    color: #F1F2F3;
+    font-size: 14px;
+}
+
+.node-item:hover {
+    background: rgba(184, 205, 239, .2);
+}
+
+.node-item_plain:focus {
+    background: rgba(184, 205, 239, .6);
+    color: black;
+}
+
+.directory__child {
+    margin-left: 40px;
+}
+
 .node-icon {
     margin-right: 10px;
-}
-
-.selected {
-    background: rgba(184, 205, 239, .6);
-    color: black;
-}
-
-.selected:hover {
-    background: rgba(184, 205, 239, .6);
-    color: black;
 }

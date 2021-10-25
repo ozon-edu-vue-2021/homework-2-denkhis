@@ -1,11 +1,15 @@
 <template>
-  <div :class="['directory__node pointer']">
+  <button :class="[
+      'node-item pointer no-select',
+      {'node-item_plain' : nodeType !== 'directory'}
+    ]"
+  >
     <app-icon
         :name='iconName'
         class="node-icon"
     />
     <span>{{ nodeName }}</span>
-  </div>
+  </button>
 </template>
 
 <script>
@@ -22,7 +26,7 @@
       showChildren: Boolean
     },
     computed: {
-      iconName () {
+      iconName() {
         if (this.nodeType === 'directory') {
           return this.showChildren ? 'folderOpen' : 'folderClosed'
         } else {
