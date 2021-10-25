@@ -22,6 +22,10 @@ body {
     background: rgba(184, 205, 239, .2);
 }
 
+.directory__node:focus {
+    background: rgba(184, 205, 239, .2);
+}
+
 .directory__child {
     margin-left: 40px;
 }

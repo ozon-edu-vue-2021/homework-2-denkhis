@@ -1,5 +1,5 @@
 <template>
-  <div :class="['directory__node pointer', {selected}]" @click="selectItem">
+  <div :class="['directory__node pointer']">
     <app-icon
         :name='iconName'
         class="node-icon"
@@ -21,9 +21,6 @@
       nodeType: String,
       showChildren: Boolean
     },
-    data: () => ({
-      selected: false
-    }),
     computed: {
       iconName () {
         if (this.nodeType === 'directory') {
@@ -34,9 +31,10 @@
       }
     },
     methods: {
-      selectItem () {
-        this.selected = !this.selected
-      }
+      // selectItem () {
+      //   if (this.nodeType === 'directory') return
+      //   this.selected = !this.selected
+      // }
     }
   }
 </script>
