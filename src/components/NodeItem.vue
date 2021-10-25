@@ -1,15 +1,17 @@
 <template>
-  <button :class="[
-      'node-item pointer no-select',
-      {'node-item_plain' : nodeType !== 'directory'}
+  <div class="node-item">
+    <button :class="[
+      'node-item__button pointer no-select',
+      {'node-item__button_plain' : nodeType !== 'directory'}
     ]"
-  >
-    <app-icon
-        :name='iconName'
-        class="node-icon"
-    />
-    <span>{{ nodeName }}</span>
-  </button>
+    >
+      <app-icon
+          :name='iconName'
+          class="node-item__icon"
+      />
+      <span>{{ nodeName }}</span>
+    </button>
+  </div>
 </template>
 
 <script>

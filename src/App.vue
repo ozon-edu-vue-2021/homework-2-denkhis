@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <directory :node="nodeTree"/>
+    <div class="path">/path/path/path</div>
   </div>
 </template>
 

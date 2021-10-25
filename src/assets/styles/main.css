@@ -24,30 +24,42 @@ body {
     cursor: pointer;
 }
 
-
 .node-item {
     display: flex;
+}
+
+.node-item__button {
+    display: flex;
     align-items: center;
-    margin-bottom: 5px;
+    margin: 0 10px 5px 0;
     padding: 5px;
     background: transparent;
     border-radius: 5px;
     border: none;
 }
 
-.node-item:hover {
+.node-item__button:hover {
     background: rgba(184, 205, 239, .2);
 }
 
-.node-item_plain:focus {
+.node-item__button_plain:focus {
     background: rgba(184, 205, 239, .6);
     color: black;
+}
+
+.node-item__icon {
+    margin-right: 10px;
 }
 
 .directory__child {
     margin-left: 40px;
 }
 
-.node-icon {
-    margin-right: 10px;
+.path {
+    display: inline;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    font-size: 18px;
 }
