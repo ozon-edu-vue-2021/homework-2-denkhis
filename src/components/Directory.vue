@@ -4,13 +4,15 @@
         :node-name="node.name"
         :node-type="node.type"
         :show-children="showChildren"
-        @click.native="toggleChildren"
+        @click.native="handleNodeClick"
     />
     <div v-if="hasChildren && showChildren">
       <directory
           v-for="(child, index) in node.contents"
+          v-on="$listeners"
           :key="`${child.name}-${index}`"
           :node="child"
+          :parent-path="currentPath"
           class="directory__child"
       />
     </div>
@@ -29,13 +31,15 @@
       node: {
         type: Object,
         required: true
-      }
+      },
+      parentPath: String
     },
     data: () => ({
       showChildren: false,
     }),
     methods: {
-      toggleChildren () {
+      handleNodeClick () {
+        if (this.node.type !== 'directory') this.$emit('select-node', this.currentPath)
         this.showChildren = !this.showChildren
       }
     },
@@ -43,6 +47,9 @@
       hasChildren () {
         const { contents } = this.node
         return contents && contents.length > 0
+      },
+      currentPath () {
+        return `${this.parentPath}${this.node.name}/`
       }
     }
   }

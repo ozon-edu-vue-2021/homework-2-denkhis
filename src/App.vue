@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <directory :node="nodeTree"/>
-    <div class="path">/path/path/path</div>
+    <directory
+        v-on="$listeners"
+        :node="nodeTree"
+        parent-path=""
+        @select-node="changePath"
+    />
+    <div class="path">{{ path }}</div>
   </div>
 </template>
 
@@ -15,7 +20,14 @@
       Directory
     },
     data: () => ({
-      nodeTree
-    })
+      nodeTree,
+      path: ''
+    }),
+    methods: {
+      changePath (payload) {
+        console.log(payload)
+        this.path = payload
+      }
+    }
   }
 </script>

@@ -35,12 +35,6 @@
           return this.nodeType
         }
       }
-    },
-    methods: {
-      // selectItem () {
-      //   if (this.nodeType === 'directory') return
-      //   this.selected = !this.selected
-      // }
     }
   }
 </script>
