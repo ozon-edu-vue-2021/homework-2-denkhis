@@ -17,13 +17,13 @@
     components: {
       Directory
     },
+    data: () => ({
+      nodeTree
+    }),
     computed: {
       filePath () {
         return this.$store.state.filePath
       }
     },
-    data: () => ({
-      nodeTree
-    })
   }
 </script>

@@ -36,12 +36,6 @@
     data: () => ({
       showChildren: false,
     }),
-    methods: {
-      handleNodeClick () {
-        if (this.node.type !== 'directory') this.$store.commit('setFilePath', this.currentPath)
-        this.showChildren = !this.showChildren
-      }
-    },
     computed: {
       hasChildren () {
         const { contents } = this.node
@@ -49,6 +43,12 @@
       },
       currentPath () {
         return `${this.parentPath}${this.node.name}/`
+      }
+    },
+    methods: {
+      handleNodeClick () {
+        if (this.node.type !== 'directory') this.$store.commit('setFilePath', this.currentPath)
+        this.showChildren = !this.showChildren
       }
     }
   }
