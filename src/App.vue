@@ -1,12 +1,10 @@
 <template>
   <div id="app">
     <directory
-        v-on="$listeners"
         :node="nodeTree"
         parent-path=""
-        @select-node="changePath"
     />
-    <div class="path">{{ path }}</div>
+    <div class="path">{{ filePath }}</div>
   </div>
 </template>
 
@@ -19,14 +17,13 @@
     components: {
       Directory
     },
-    data: () => ({
-      nodeTree,
-      path: ''
-    }),
-    methods: {
-      changePath (payload) {
-        this.path = payload
+    computed: {
+      filePath () {
+        return this.$store.state.filePath
       }
-    }
+    },
+    data: () => ({
+      nodeTree
+    })
   }
 </script>

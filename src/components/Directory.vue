@@ -9,7 +9,6 @@
     <div v-if="hasChildren && showChildren">
       <directory
           v-for="(child, index) in node.contents"
-          v-on="$listeners"
           :key="`${child.name}-${index}`"
           :node="child"
           :parent-path="currentPath"
@@ -39,7 +38,7 @@
     }),
     methods: {
       handleNodeClick () {
-        if (this.node.type !== 'directory') this.$emit('select-node', this.currentPath)
+        if (this.node.type !== 'directory') this.$store.commit('setFilePath', this.currentPath)
         this.showChildren = !this.showChildren
       }
     },
