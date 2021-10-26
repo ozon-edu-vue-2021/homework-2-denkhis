@@ -13,6 +13,8 @@
           :key="`${child.name}-${index}`"
           :node="child"
           :parent-path="currentFilePath"
+          :file-path="filePath"
+          v-on="$listeners"
           class="directory__child"
       />
     </div>
@@ -32,7 +34,8 @@
         type: Object,
         required: true
       },
-      parentPath: String
+      parentPath: String,
+      filePath: String
     },
     data: () => ({
       showChildren: false,
@@ -42,19 +45,16 @@
         const { contents } = this.node
         return contents && contents.length > 0
       },
-      selectedFilePath () {
-        return this.$store.state.selectedFilePath
-      },
       currentFilePath () {
         return `${this.parentPath} ${this.node.name} /`
       },
       isNodeActive () {
-        return this.node.type !== 'directory' && this.selectedFilePath === this.currentFilePath
+        return this.node.type !== 'directory' && this.filePath === this.currentFilePath
       }
     },
     methods: {
       handleNodeClick () {
-        if (this.node.type !== 'directory') this.$store.commit('setFilePath', this.currentFilePath)
+        if (this.node.type !== 'directory') this.$emit('set-path', this.currentFilePath)
         this.showChildren = !this.showChildren
       }
     }

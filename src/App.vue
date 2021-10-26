@@ -2,9 +2,12 @@
   <div id="app">
     <directory
         :node="nodeTree"
+        :file-path="filePath"
+        v-on="$listeners"
         parent-path=""
+        @set-path="setFilePath"
     />
-    <div class="file-path">{{ selectedFilePath }}</div>
+    <div class="file-path">{{ filePath }}</div>
   </div>
 </template>
 
@@ -18,11 +21,12 @@
       Directory
     },
     data: () => ({
-      nodeTree
+      nodeTree,
+      filePath: ''
     }),
-    computed: {
-      selectedFilePath () {
-        return this.$store.state.selectedFilePath
+    methods: {
+      setFilePath (payload) {
+        this.filePath = payload
       }
     }
   }
