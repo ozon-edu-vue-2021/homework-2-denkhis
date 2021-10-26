@@ -46,7 +46,7 @@
         return this.$store.state.selectedFilePath
       },
       currentFilePath () {
-        return `${this.parentPath}${this.node.name}/`
+        return `${this.parentPath} ${this.node.name} /`
       },
       isNodeActive () {
         return this.node.type !== 'directory' && this.selectedFilePath === this.currentFilePath
