@@ -25,7 +25,7 @@ body {
 }
 
 .node-item {
-    display: flex;
+    display: inline-flex;
 }
 
 .node-item__button {
@@ -42,7 +42,7 @@ body {
     background: rgba(184, 205, 239, .2);
 }
 
-.node-item__button_plain:focus {
+.node-item__button_active {
     background: rgba(184, 205, 239, .6);
     color: black;
 }

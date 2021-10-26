@@ -8,11 +8,11 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    filePath: ''
+    selectedFilePath: ''
   },
   mutations: {
     setFilePath (state, payload) {
-      state.filePath = payload
+      state.selectedFilePath = payload
     }
   }
 })

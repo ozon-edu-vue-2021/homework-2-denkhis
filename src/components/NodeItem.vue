@@ -2,7 +2,7 @@
   <div class="node-item">
     <button :class="[
       'node-item__button pointer no-select',
-      {'node-item__button_plain' : nodeType !== 'directory'}
+      {'node-item__button_active' : active}
     ]"
     >
       <app-icon
@@ -25,7 +25,8 @@
     props: {
       nodeName: String,
       nodeType: String,
-      showChildren: Boolean
+      showChildren: Boolean,
+      active: Boolean
     },
     computed: {
       iconName() {

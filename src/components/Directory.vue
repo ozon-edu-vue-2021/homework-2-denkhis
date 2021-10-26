@@ -4,6 +4,7 @@
         :node-name="node.name"
         :node-type="node.type"
         :show-children="showChildren"
+        :active="isNodeActive"
         @click.native="handleNodeClick"
     />
     <div v-if="hasChildren && showChildren">
@@ -11,7 +12,7 @@
           v-for="(child, index) in node.contents"
           :key="`${child.name}-${index}`"
           :node="child"
-          :parent-path="currentPath"
+          :parent-path="currentFilePath"
           class="directory__child"
       />
     </div>
@@ -41,13 +42,19 @@
         const { contents } = this.node
         return contents && contents.length > 0
       },
-      currentPath () {
+      selectedFilePath () {
+        return this.$store.state.selectedFilePath
+      },
+      currentFilePath () {
         return `${this.parentPath}${this.node.name}/`
+      },
+      isNodeActive () {
+        return this.node.type !== 'directory' && this.selectedFilePath === this.currentFilePath
       }
     },
     methods: {
       handleNodeClick () {
-        if (this.node.type !== 'directory') this.$store.commit('setFilePath', this.currentPath)
+        if (this.node.type !== 'directory') this.$store.commit('setFilePath', this.currentFilePath)
         this.showChildren = !this.showChildren
       }
     }
