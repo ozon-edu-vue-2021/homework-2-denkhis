@@ -4,7 +4,7 @@
         :node="nodeTree"
         parent-path=""
     />
-    <div class="path">{{ selectedFilePath }}</div>
+    <div class="file-path">{{ selectedFilePath }}</div>
   </div>
 </template>
 
@@ -24,6 +24,6 @@
       selectedFilePath () {
         return this.$store.state.selectedFilePath
       }
-    },
+    }
   }
 </script>
