@@ -3,11 +3,11 @@
     <node-item
         :node-name="node.name"
         :node-type="node.type"
-        :show-children="showChildren"
+        :is-show-children="isShowChildren"
         :active="isNodeActive"
         @click.native="handleNodeClick"
     />
-    <div v-if="hasChildren && showChildren">
+    <div v-if="hasChildren && isShowChildren">
       <directory
           v-for="(child, index) in node.contents"
           :key="`${child.name}-${index}`"
@@ -35,7 +35,7 @@
       parentPath: String
     },
     data: () => ({
-      showChildren: false,
+      isShowChildren: false,
     }),
     computed: {
       hasChildren () {
@@ -54,8 +54,12 @@
     },
     methods: {
       handleNodeClick () {
-        if (this.node.type !== 'directory') this.$store.commit('setFilePath', this.currentFilePath)
-        this.showChildren = !this.showChildren
+        if (this.node.type !== 'directory') {
+          this.$store.commit('setFilePath', this.currentFilePath)
+        } else if (this.selectedFilePath.includes(this.node.name)) {
+          this.$store.commit('setFilePath', '')
+        }
+        this.isShowChildren = !this.isShowChildren
       }
     }
   }

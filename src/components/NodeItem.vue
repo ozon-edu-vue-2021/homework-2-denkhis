@@ -25,13 +25,13 @@
     props: {
       nodeName: String,
       nodeType: String,
-      showChildren: Boolean,
+      isShowChildren: Boolean,
       active: Boolean
     },
     computed: {
       iconName() {
         if (this.nodeType === 'directory') {
-          return this.showChildren ? 'folderOpen' : 'folderClosed'
+          return this.isShowChildren ? 'folderOpen' : 'folderClosed'
         } else {
           return this.nodeType
         }
