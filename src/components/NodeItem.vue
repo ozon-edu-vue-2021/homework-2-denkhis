@@ -1,9 +1,11 @@
 <template>
   <div class="node-item">
-    <button :class="[
-      'node-item__button pointer no-select',
-      {'node-item__button_active' : active}
-    ]"
+    <button
+        tabindex="0"
+        :class="[
+          'node-item__button pointer no-select',
+          {'node-item__button_active' : active}
+        ]"
     >
       <app-icon
           :name='iconName'

@@ -42,6 +42,11 @@ body {
     background: rgba(184, 205, 239, .2);
 }
 
+.node-item__button:focus {
+    background: rgba(184, 205, 239, .2);
+    outline: none;
+}
+
 .node-item__button_active {
     background: rgba(184, 205, 239, .6);
     color: black;

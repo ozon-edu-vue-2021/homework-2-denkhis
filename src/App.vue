@@ -24,6 +24,17 @@
       selectedFilePath () {
         return this.$store.state.selectedFilePath
       }
+    },
+    methods: {
+      openFirstDirectory (e) {
+        const app = document.getElementById('app')
+        if (e.key === 'Enter' && app.children.length === 2) {
+          document.querySelector('.node-item__button').focus()
+        }
+      }
+    },
+    mounted () {
+      document.addEventListener('keydown', this.openFirstDirectory)
     }
   }
 </script>
