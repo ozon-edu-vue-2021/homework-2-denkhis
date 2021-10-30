@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <directory
+        :node="nodeTree"
+        parent-path=""
+    />
+    <div class="file-path">{{ selectedFilePath }}</div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import Directory from '@/components/Directory'
+  import nodeTree from '../public/static/node_modules.json'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    components: {
+      Directory
+    },
+    data: () => ({
+      nodeTree
+    }),
+    computed: {
+      selectedFilePath () {
+        return this.$store.state.selectedFilePath
+      }
+    }
   }
-}
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
